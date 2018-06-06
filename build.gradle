@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.springBootVersion")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    //compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.codehaus.groovy:groovy-all')
+    compile "org.gebish:geb-core:$project.gebVersion"
+    compile "org.seleniumhq.selenium:selenium-support:$project.seleniumVersion"
+    compile "org.seleniumhq.selenium:selenium-chrome-driver:$project.chromeDriverVersion"
+    compile "org.seleniumhq.selenium:htmlunit-driver:$project.htmlUnitDriverVersion"
+    compile "net.sourceforge.htmlunit:htmlunit:2.31"
+    compile("io.github.bonigarcia:webdrivermanager:$project.webDriverManagerVersion") {
+        exclude group: 'org.seleniumhq.selenium'
+    }
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.projectreactor:reactor-test')
+    testCompile "org.gebish:geb-spock:$project.gebVersion"
+    testCompile("org.spockframework:spock-core:$project.spockVersion")
+    testCompile("org.spockframework:spock-spring:$project.spockVersion")
+}

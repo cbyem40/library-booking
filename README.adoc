@@ -1,0 +1,10 @@
+= Template Project for Geb
+Jason Yu
+06/Jun/2018
+
+Configure Geb and Selenium packages with Gradle.
+
+== Browser Driver Configuration
+
+.select-chrome-driver-via-geb-env
+ -Dgeb.env=chrome
