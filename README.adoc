@@ -8,3 +8,7 @@ Configure Geb and Selenium packages with Gradle.
 
 .select-chrome-driver-via-geb-env
  -Dgeb.env=chrome
+
+== Reference
+
+link:http://www.gebish.org/manual/current/[Geb Book]
