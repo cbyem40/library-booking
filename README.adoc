@@ -1,14 +1,34 @@
-= Template Project for Geb
-Jason Yu
-06/Jun/2018
+= Library meeting room booking robot
+Jason Yu, Rachel Tung
+
+- v1.0, 06-Jun-2018
+- v1.1, 24-Jul-2018
+
 
 Configure Geb and Selenium packages with Gradle.
 
 == Browser Driver Configuration
 
 .select-chrome-driver-via-geb-env
+
+.set `geb.env` in the property when starting this spring-boot application.
  -Dgeb.env=chrome
 
-== Reference
+== Run booking robot in Docker
 
+. build project
+
+  gradle build -x test
+
+. edit application.properties
+
+.. Add user name, id, birthday, email into the property file.
+.. If there are more than one users, use ',' to separate them.
+
+. run docker image
+
+.command
+ docker run -p 5566:4444  -v "$PWD":/usr/src/myapp selenium/standalone-chrome:3.13.0 java -Dgeb.env=chrome -Dspring.config.location=/usr/src/myapp/application.properties -jar /usr/src/myapp/library-booking-1.0.0.jar
+
+== Reference
 link:http://www.gebish.org/manual/current/[Geb Book]
