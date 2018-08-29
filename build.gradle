@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    //compile('org.springframework.boot:spring-boot-starter-webflux')
+//    compile('org.springframework.boot:spring-boot-starter-webflux')
     compile('org.springframework.boot:spring-boot-starter')
     compile('org.codehaus.groovy:groovy-all')
     compile "org.gebish:geb-core:$project.gebVersion"
@@ -32,7 +32,10 @@ dependencies {
     compile("io.github.bonigarcia:webdrivermanager:$project.webDriverManagerVersion") {
         exclude group: 'org.seleniumhq.selenium'
     }
-
+    // java opencv wrapper
+    compile group: 'org.bytedeco', name: 'javacv-platform', version: '1.4.1'
+    compile group: 'org.bytedeco.javacpp-presets', name: 'opencv', version: '3.4.0-1.4'
+    compile group: 'org.bytedeco.javacpp-presets', name: 'tesseract-platform', version: '3.05.01-1.4.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('io.projectreactor:reactor-test')
     testCompile "org.gebish:geb-spock:$project.gebVersion"
