@@ -4,13 +4,27 @@ jdk:
 
 jobs:
   include:
+      - stage: compile
       - stage: test
-        script: ./gradlew --version
-      - # stage name not required, will continue to use `test`
-        script: ./gradlew tasks
-      - stage: deploy
-        script: echo "HELLO WORLD!"
-
+      - stage: execute script
+        script:
+          - ./gradlew --version
+          - ./gradlew tasks
+      - stage: deploy to dev
+        script: echo "release to dev"
+        deploy:
+          provider: script
+          script: echo "execute deploy.sh dev"
+          on:
+            branch: master
+      - stage: deploy to stag
+        script: echo "release to stag"
+        deploy:
+          provider: script
+          script: echo "execute deploy.sh stag"
+          on:
+              all_branches: true
+              condition: $TRAVIS_BRANCH =~ ^release|production$
 
 after_success:
  - bash <(curl -s https://codecov.io/bash)
