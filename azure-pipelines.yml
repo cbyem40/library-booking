@@ -15,9 +15,9 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.10'
     jdkArchitectureOption: 'x64'
-    codeCoverageToolOption: 'cobertura'
-    sonarQubeRunAnalysis: true 
-    sqGradlePluginVersionChoice: 'build'
+    #codeCoverageToolOption: 'cobertura'
+    #sonarQubeRunAnalysis: true 
+    #sqGradlePluginVersionChoice: 'build'
     #sonarQubeGradlePluginVersion: '2.6.1' # Required when sonarQubeRunAnalysis == True && SqGradlePluginVersionChoice == Specify
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
