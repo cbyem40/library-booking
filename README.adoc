@@ -4,7 +4,6 @@ Jason Yu, Rachel Tung
 - v1.0, 06-Jun-2018
 - v1.1, 24-Jul-2018
 
-
 Configure Geb and Selenium packages with Gradle.
 
 == Browser Driver Configuration
@@ -17,7 +16,8 @@ Configure Geb and Selenium packages with Gradle.
 == Run booking robot in Docker
 
 . build project
-
+  
+  gradle build test
   gradle build -x test
 
 . edit application.properties
